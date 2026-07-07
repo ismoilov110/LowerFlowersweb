@@ -27,7 +27,7 @@ export const NavbarLink = [
         slug: "/contacts"
     },
      {
-        id: 4,
+        id: 5,
         name: "FAQ",
         slug: "/faq"
     }
