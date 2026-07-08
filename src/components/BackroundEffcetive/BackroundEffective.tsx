@@ -5,7 +5,7 @@ const blurEffects = [
         size: 700,
         top: 80,
         left: -300,
-        opacity: 0.18,
+        opacity: 0.35,
     },
     {
         id: 2,
@@ -13,7 +13,7 @@ const blurEffects = [
         size: 650,
         top: 150,
         right: -250,
-        opacity: 0.15,
+        opacity: 0.50,
     },
 ];
 
