@@ -8,15 +8,11 @@ export default function HeroCart() {
         <HiOutlineShoppingBag size={24} className="text-white" />
         {/* Badge */}
         <span
-          className="
-                        absolute
-
+          className="absolute
                         top-2
                         right-2
-
                         w-5
                         h-4
-
                         rounded-full
 
                         bg-[#43FFD2]
