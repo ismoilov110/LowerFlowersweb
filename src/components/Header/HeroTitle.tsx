@@ -6,7 +6,7 @@ export default function HeroTitle() {
 
   const titleRef = useRef<HTMLHeadingElement>(null)
   const descRef = useRef<HTMLParagraphElement>(null)
-  const buttonRef = useRef<HTMLButtonElement>(null)
+  // const buttonRef = useRef<HTMLButtonElement>(null)
 
 
   useEffect(() => {
