@@ -31,3 +31,12 @@ export interface NavbarLayoutProps {
     isMobileMenuOpen: boolean;
     setIsMobileMenuOpen: (isOpen: boolean) => void;
 }
+
+
+// for CatalogCards types
+
+export interface CatalogCardType {
+    id: number;
+    title: string;
+    items: string[]
+}
