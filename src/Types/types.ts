@@ -40,3 +40,23 @@ export interface CatalogCardType {
     title: string;
     items: string[]
 }
+
+
+// for CatalogProducts types 
+
+export interface CatalogProdctType {
+    id: number,
+    imags: string,
+    name: string,
+    price: string
+}
+
+
+// for PopularProducts types
+
+export interface PopularProductType {
+    id: number
+    imgs: string
+    title: string
+    PricePopular: string
+}
