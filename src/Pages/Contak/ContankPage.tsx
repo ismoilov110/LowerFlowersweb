@@ -1,6 +1,10 @@
 
+import ContactSection from "@/components/Contact/ContactSection";
+
 export default function ContankPage() {
   return (
-    <div>ContankPage</div>
-  )
+    <div className="pt-20">
+      <ContactSection />
+    </div>
+  );
 }

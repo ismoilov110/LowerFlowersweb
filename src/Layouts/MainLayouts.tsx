@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 
 import Navbar from "@/components/Navbar/Navbar";
 import BackgroundEffects from "@/components/BackroundEffcetive/BackroundEffective";
-// import Footer from "@/components/Footer/Footer";
+import Footer from "@/components/Footer/Footer";
 
 export default function MainLayout() {
     return (
@@ -23,7 +23,7 @@ export default function MainLayout() {
                 <Outlet />
 
                 {/* Footer */}
-                {/* <Footer /> */}
+                <Footer />
 
             </div>
         </main>

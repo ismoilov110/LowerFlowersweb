@@ -17,8 +17,9 @@ export default function App() {
                 <Route index element={<HomePage />} />
                 <Route path="/catelogy" element={<CatelogyPage />} />
                 <Route path="/delevary" element={<DelevaryPage />} />
+                <Route path="/delivery" element={<DelevaryPage />} />
                 <Route path="/about" element={<AboutPage />} />
-                <Route path="/contak" element={<ContankPage />} />
+                <Route path="/contacts" element={<ContankPage />} />
                 <Route path="/faq" element={<FAQPage />} />
             </Route>
         </Routes>

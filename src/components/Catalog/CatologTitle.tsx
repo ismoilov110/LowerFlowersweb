@@ -2,7 +2,7 @@
 export default function CatologTitle() {
     return (
         <div>
-            <h1 className="font-medium mb-[10px] text-[96px] uppercase leading-none text-white">каталог</h1>
+            <h1 className="font-medium mb-[10px] lg:text-[96px] text-[60px]  uppercase leading-none text-white">каталог</h1>
 
             <p className="max-w-[450px] font-light text-[20px] leading-[26px] text-white">
                 У нас самый большой выбор цветов, букетов, открыток и подарков.

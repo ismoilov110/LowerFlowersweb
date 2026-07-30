@@ -6,7 +6,7 @@ import BackgroundEffects from "@/components/BackroundEffcetive/BackroundEffectiv
 
 export default function Catolog() {
     return (
-        <section className="relative pt-130 pb-32 overflow-hidden bg-[#040A0A]">
+        <section className="relative pt-100 pb-32 overflow-hidden bg-[#040A0A]">
             {/* Background Glows positioned behind the Catalog content */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <BackgroundEffects />
