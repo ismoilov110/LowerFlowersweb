@@ -89,6 +89,7 @@ export default function SearchInput({
                 className="
                     flex
                     items-center
+                    cursor-pointer
                     justify-center
 
                     w-8
