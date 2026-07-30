@@ -2,6 +2,7 @@ import Catolog from "@/components/Catalog/Catolog";
 import Hero from "@/components/Header/Hero";
 import CatalogProducts from "@/components/Products/CatalogProduct/CatalogProducts";
 import PopularProducts from "@/components/Products/PopularProduct/PopularProducts";
+import Contactss from "@/components/Contact/Contactss";
 
 export default function HomePage() {
   return (
@@ -9,7 +10,8 @@ export default function HomePage() {
       <Hero />
       <Catolog />
       <CatalogProducts />
-      <PopularProducts/>
+      <PopularProducts />
+      <Contactss />
     </div>
   )
 }

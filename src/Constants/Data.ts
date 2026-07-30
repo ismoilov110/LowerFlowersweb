@@ -180,6 +180,47 @@ export const PopularsProduct: PopularProductType[] = [
         title: "Романтика",
         PricePopular: "2000 000 so'm"
     },
-
-
 ]
+
+// Footer Links Type Definition
+export interface FooterLink {
+    id: number;
+    name: string;
+    slug: string;
+}
+
+// Catalog category links for Column 2
+export const FooterCatalogLinks: FooterLink[] = [
+    { id: 0, name: "Популярное", slug: "/catelogy?filter=popular" },
+    { id: 1, name: "Сухоцветы", slug: "/catelogy?filter=dried-flowers" },
+    { id: 2, name: "Букеты роз", slug: "/catelogy?filter=roses" },
+    { id: 3, name: "Композиции из цветов", slug: "/catelogy?filter=compositions" },
+    { id: 4, name: "Индивидуальный букет", slug: "/catelogy?filter=individual" },
+    { id: 5, name: "Букет на праздник", slug: "/catelogy?filter=holiday" },
+    { id: 6, name: "Упаковка подарков", slug: "/catelogy?filter=gift-wrapping" },
+    { id: 7, name: "Шары", slug: "/catelogy?filter=balloons" },
+    { id: 8, name: "Открытки", slug: "/catelogy?filter=postcards" },
+    { id: 9, name: "Конверты", slug: "/catelogy?filter=envelopes" }
+];
+
+// Bouquet recipient links for Column 3
+export const FooterBouquetLinks: FooterLink[] = [
+    { id: 0, name: "Для девушки", slug: "/catelogy?recipient=girl" },
+    { id: 1, name: "Для мужчины", slug: "/catelogy?recipient=man" },
+    { id: 2, name: "Для жены", slug: "/catelogy?recipient=wife" },
+    { id: 3, name: "Для мамы", slug: "/catelogy?recipient=mom" },
+    { id: 4, name: "Для коллеги", slug: "/catelogy?recipient=colleague" },
+    { id: 5, name: "Для начальника", slug: "/catelogy?recipient=boss" },
+    { id: 6, name: "Для дочки", slug: "/catelogy?recipient=daughter" },
+    { id: 7, name: "Для детей", slug: "/catelogy?recipient=kids" },
+    { id: 8, name: "Для женщины", slug: "/catelogy?recipient=woman" }
+];
+
+// General navigation links for Column 4
+export const FooterNavigationLinks: FooterLink[] = [
+    { id: 0, name: "Доставка и оплата", slug: "/delivery" },
+    { id: 1, name: "О нас", slug: "/about" },
+    { id: 2, name: "FAQ", slug: "/faq" },
+    { id: 3, name: "Контакты", slug: "/contacts" },
+    { id: 4, name: "Для корпоративных клиентов", slug: "/corporate" }
+];
