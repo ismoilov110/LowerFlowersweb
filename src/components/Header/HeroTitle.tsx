@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Button } from "../ui/button";
 import gsap from "gsap";
+import { Link } from "react-router-dom";
 
 export default function HeroTitle() {
 
@@ -67,9 +68,11 @@ export default function HeroTitle() {
 
         {/* Buttons */}
 
-        <Button className="group relative overflow-hidden mt-12 h-[56px] px-12 rounded-full bg-[#43FFD2] text-black hover:text-white uppercase font-bold tracking-[0.12em] cursor-pointer transition-al duration-500 hover:-translate-y-1 hover:scale-[1.03] hover:shadow-[0_0_45px_rgba(67,255,210,.45)]active:scale-[0.97]">
-          смотреть каталог
-        </Button>
+        <Link to="/catelogy">
+          <Button className="group relative overflow-hidden mt-12 h-[56px] px-12 rounded-full bg-[#43FFD2] text-black hover:text-white uppercase font-bold tracking-[0.12em] cursor-pointer transition-al duration-500 hover:-translate-y-1 hover:scale-[1.03] hover:shadow-[0_0_45px_rgba(67,255,210,.45)]active:scale-[0.97]">
+            смотреть каталог
+          </Button>
+        </Link>
       </div>
     </div>
   )

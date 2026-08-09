@@ -20,7 +20,8 @@ const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <nav className={Styles.container + " relative z-50"}>
+        <div className="sticky top-0 z-50 w-full">
+            <nav className={Styles.container}>
             {/* Mobile Fullscreen Navigation Drawer */}
             <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
 
@@ -125,7 +126,8 @@ const Navbar = () => {
                     </Link>
                 </div>
             </div>
-        </nav>
+            </nav>
+        </div>
     );
 };
 
