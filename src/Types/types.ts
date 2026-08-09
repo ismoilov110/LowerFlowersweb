@@ -60,3 +60,17 @@ export interface PopularProductType {
     title: string
     PricePopular: string
 }
+
+
+// for breancrumbs types 
+
+export interface BreadcrumbsType {
+    label: string
+    href?: string
+}
+
+// for Catalog category buttons
+export interface CatalogCategoryType {
+    id: number;
+    label: string;
+}

@@ -1,6 +1,6 @@
 // Navbar Links
 
-import type { CatalogCardType, CatalogProdctType, PopularProductType } from "@/Types/types"
+import type { CatalogCardType, CatalogProdctType, PopularProductType, CatalogCategoryType } from "@/Types/types"
 
 export const NavbarLink = [
     {
@@ -11,7 +11,7 @@ export const NavbarLink = [
     {
         id: 1,
         name: "Каталог",
-        slug: "/catalog"
+        slug: "/catelogy"
     },
     {
         id: 2,
@@ -223,4 +223,25 @@ export const FooterNavigationLinks: FooterLink[] = [
     { id: 2, name: "FAQ", slug: "/faq" },
     { id: 3, name: "Контакты", slug: "/contacts" },
     { id: 4, name: "Для корпоративных клиентов", slug: "/corporate" }
+];
+
+// Catalog Category Buttons Data
+export const catalogCategories: CatalogCategoryType[] = [
+  { id: 0, label: "БУКЕТЫ ИЗ ГИПСОФИЛ" },
+  { id: 1, label: "БУКЕТЫ ИЗ РОМАШЕК" },
+  { id: 2, label: "БУКЕТЫ ИЗ ХРИЗАНТЕМ" },
+  { id: 3, label: "КОМНАТНЫЕ ЦВЕТЫ В ГОРШКАХ" },
+  { id: 4, label: "МОНОБУКЕТЫ" },
+  { id: 5, label: "СБОРНЫЕ БУКЕТЫ" },
+  { id: 6, label: "БУКЕТ НА ПРАЗДНИК" },
+  { id: 7, label: "КОМПОЗИЦИИ ИЗ ЦВЕТОВ" },
+  { id: 8, label: "КОНВЕРТЫ" },
+  { id: 9, label: "ОТКРЫТКИ" },
+  { id: 10, label: "ПОДАРКИ" },
+  { id: 11, label: "БУКЕТЫ ИЗ СУХОЦВЕТОВ" },
+  { id: 12, label: "ШАРЫ" },
+  { id: 13, label: "ПОПУЛЯРНОЕ" },
+  { id: 14, label: "БУКЕТЫ РОЗ" },
+  { id: 15, label: "ЦВЕТЫ НА ПОХОРОНЫ" },
+  { id: 16, label: "УПАКОВКА ПОДАРКОВ" }
 ];
