@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { catalogCategories } from "@/Constants/Data";
 
 export default function PageCatalogHero() {
+  const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
+
   return (
     <div className="w-full max-w-[1240px] mx-auto px-4 md:px-6 pt-12 md:pt-16 pb-12">
       {/* Dark glassmorphic card container */}
@@ -39,6 +42,7 @@ export default function PageCatalogHero() {
           >
             КАТАЛОГ
           </span>
+
           <span
             className="
               text-[42px]
@@ -80,11 +84,176 @@ export default function PageCatalogHero() {
           <br className="hidden md:block" /> СОБЫТИЙ:
         </div>
 
-        {/* Categories Grid (Naturally Wrapping) */}
-        <div className="flex flex-wrap gap-2.5 md:gap-3 mt-6 md:mt-8 justify-start items-center">
+        {/* ================================================= */}
+        {/* MOBILE CONTROLS */}
+        {/* ================================================= */}
+
+        <div className="md:hidden flex flex-col gap-3 mt-2">
+          {/* Filter */}
+          <button
+            type="button"
+            className="
+              flex
+              items-center
+              w-fit
+              text-[#d77bab]
+              text-[11px]
+              uppercase
+              tracking-[0.08em]
+              font-medium
+              transition-colors
+              duration-300
+              hover:text-white
+            "
+          >
+            <span>ФИЛЬТР ТОВАРОВ</span>
+
+            <span className="ml-3 text-[10px]">
+              ▼
+            </span>
+          </button>
+
+          {/* Sorting */}
+          <button
+            type="button"
+            className="
+              flex
+              items-center
+              w-fit
+              text-[#d77bab]
+              text-[11px]
+              uppercase
+              tracking-[0.08em]
+              font-medium
+              transition-colors
+              duration-300
+              hover:text-white
+            "
+          >
+            <span>СОРТИРОВКА ТОВАРОВ</span>
+
+            <span className="ml-3 text-[10px]">
+              ▼
+            </span>
+          </button>
+
+          {/* Categories Toggle */}
+          <button
+            type="button"
+            onClick={() => setIsCategoriesOpen((prev) => !prev)}
+            className={`
+              flex
+              items-center
+              w-fit
+              text-[11px]
+              uppercase
+              tracking-[0.08em]
+              font-medium
+              transition-colors
+              duration-300
+              ${
+                isCategoriesOpen
+                  ? "text-[#43FFD2]"
+                  : "text-[#d77bab]"
+              }
+            `}
+          >
+            <span>КАТЕГОРИИ</span>
+
+            <span
+              className={`
+                ml-3
+                text-[10px]
+                transition-transform
+                duration-300
+                ${
+                  isCategoriesOpen
+                    ? "rotate-180"
+                    : ""
+                }
+              `}
+            >
+              ▼
+            </span>
+          </button>
+
+          {/* Mobile Category Buttons */}
+          <div
+            className={`
+              overflow-hidden
+              transition-all
+              duration-500
+              ease-in-out
+              ${
+                isCategoriesOpen
+                  ? "max-h-[700px] opacity-100 mt-1"
+                  : "max-h-0 opacity-0"
+              }
+            `}
+          >
+            <div
+              className="
+                flex
+                flex-wrap
+                gap-2
+                items-center
+              "
+            >
+              {catalogCategories.map((category) => (
+                <button
+                  key={category.id}
+                  type="button"
+                  className="
+                    px-3
+                    py-2
+                    rounded-full
+                    border
+                    border-white/15
+                    bg-black/20
+                    backdrop-blur-[10px]
+                    text-white/85
+                    text-[8px]
+                    font-medium
+                    tracking-[0.04em]
+                    uppercase
+                    whitespace-nowrap
+                    transition-all
+                    duration-300
+                    hover:bg-[#43FFD2]/10
+                    hover:border-[#43FFD2]/40
+                    hover:text-[#43FFD2]
+                    active:scale-95
+                    cursor-pointer
+                  "
+                >
+                  {category.label}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ================================================= */}
+        {/* DESKTOP CATEGORIES */}
+        {/* ================================================= */}
+
+        <div
+          className="
+            hidden
+            md:flex
+            flex-wrap
+            gap-2.5
+            md:gap-3
+            mt-6
+            md:mt-8
+            justify-start
+            items-center
+          "
+        >
           {catalogCategories.map((category) => (
             <button
               key={category.id}
+              type="button"
               className="
                 px-4
                 py-2

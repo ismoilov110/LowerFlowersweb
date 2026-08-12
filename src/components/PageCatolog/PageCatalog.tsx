@@ -1,6 +1,7 @@
 import HeroBackground from "./HeroBackground";
 import PageCatalogHero from "./PageCatalogHero";
 import CatalogAside from "./CatalogAside";
+import PageCatologFilter from "./PageCatologFilter";
 
 export default function PageCatalog() {
   return (
@@ -21,7 +22,9 @@ export default function PageCatalog() {
         <div className="relative z-20">
           <PageCatalogHero />
         </div>
+        {/* Catalog Filter */}
+        <PageCatologFilter />
       </div>
     </section>
   );
-}
+}
