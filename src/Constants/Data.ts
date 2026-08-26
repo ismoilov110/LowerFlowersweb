@@ -1,6 +1,6 @@
 // Navbar Links
 
-import type { CatalogCardType, CatalogProdctType, PopularProductType, CatalogCategoryType } from "@/Types/types"
+import type { CatalogCardType, CatalogProdctType, PopularProductType, CatalogCategoryType, CatalogProductType } from "@/Types/types"
 
 export const NavbarLink = [
     {
@@ -244,4 +244,262 @@ export const catalogCategories: CatalogCategoryType[] = [
   { id: 14, label: "БУКЕТЫ РОЗ" },
   { id: 15, label: "ЦВЕТЫ НА ПОХОРОНЫ" },
   { id: 16, label: "УПАКОВКА ПОДАРКОВ" }
+];
+
+// Catalog products data for the catalog page
+
+import ProductImage1 from "@/assets/Img/image 114.png"
+import ProductImage2 from "@/assets/Img/image 130.png"
+import ProductImage3 from "@/assets//Img/image 131.png"
+import ProductImage4 from "@/assets/Img/image 132.png"
+import ProductImage5 from "@/assets/Img/image 133.png"
+import ProductImage6 from "@/assets/Img/image 134.png"
+import ProductImage7 from "@/assets/Img/image 135.png"
+import ProductImage8 from "@/assets/Img/image 136.png"
+import ProductImage9 from "@/assets/Img/image 137.png"
+import ProductImage10 from "@/assets/Img/image 138.png"
+import ProductImage11 from "@/assets/Img/image 139.png"
+import ProductImage12 from "@/assets/Img/image 140.png"
+
+export const products: CatalogProductType[] = [
+  {
+    id: 0,
+    title: "Лучший день",
+    price: 167000,
+    image: ProductImage1,
+    category: "Розы",
+    isNew: true,
+  },
+  {
+    id: 1,
+    title: "Нежность",
+    price: 185000,
+    image: ProductImage2,
+    category: "Розы",
+    isNew: true,
+  },
+  {
+    id: 2,
+    title: "Облако любви",
+    price: 210000,
+    image: ProductImage3,
+    category: "Гортензии",
+    isNew: false,
+  },
+  {
+    id: 3,
+    title: "Розовое утро",
+    price: 195000,
+    image: ProductImage4,
+    category: "Пионы",
+    isNew: false,
+  },
+  {
+    id: 4,
+    title: "Белые тюльпаны",
+    price: 145000,
+    image: ProductImage5,
+    category: "Тюльпаны",
+    isNew: false,
+  },
+  {
+    id: 5,
+    title: "Авторский букет",
+    price: 250000,
+    image: ProductImage6,
+    category: "Авторские букеты",
+    isNew: true,
+  },
+  {
+    id: 6,
+    title: "Персиковое настроение",
+    price: 178000,
+    image: ProductImage7,
+    category: "Розы",
+    isNew: false,
+  },
+  {
+    id: 7,
+    title: "Белая мечта",
+    price: 220000,
+    image: ProductImage8,
+    category: "Розы",
+    isNew: true,
+  },
+  {
+    id: 8,
+    title: "Весенний букет",
+    price: 155000,
+    image: ProductImage9,
+    category: "Тюльпаны",
+    isNew: false,
+  },
+  {
+    id: 9,
+    title: "Розовая нежность",
+    price: 189000,
+    image: ProductImage10,
+    category: "Пионы",
+    isNew: false,
+  },
+  {
+    id: 10,
+    title: "Голубая мечта",
+    price: 230000,
+    image: ProductImage11,
+    category: "Гортензии",
+    isNew: true,
+  },
+  {
+    id: 11,
+    title: "Любовь с первого взгляда",
+    price: 270000,
+    image: ProductImage12,
+    category: "Авторские букеты",
+    isNew: false,
+  },
+  {
+    id: 12,
+    title: "Утренний свет",
+    price: 165000,
+    image: ProductImage12,
+    category: "Розы",
+    isNew: false,
+  },
+  {
+    id: 13,
+    title: "Пудровая композиция",
+    price: 205000,
+    image: ProductImage11,
+    category: "Пионы",
+    isNew: true,
+  },
+  {
+    id: 14,
+    title: "Лавандовая мечта",
+    price: 175000,
+    image: ProductImage10,
+    category: "Авторские букеты",
+    isNew: false,
+  },
+  {
+    id: 15,
+    title: "Нежный рассвет",
+    price: 160000,
+    image: ProductImage10,
+    category: "Тюльпаны",
+    isNew: false,
+  },
+  {
+    id: 16,
+    title: "Королевские розы",
+    price: 290000,
+    image: ProductImage11,
+    category: "Розы",
+    isNew: true,
+  },
+  {
+    id: 17,
+    title: "Летний сад",
+    price: 215000,
+    image: ProductImage9,
+    category: "Авторские букеты",
+    isNew: false,
+  },
+  {
+    id: 18,
+    title: "Белоснежная нежность",
+    price: 180000,
+    image: ProductImage8,
+    category: "Розы",
+    isNew: false,
+  },
+  {
+    id: 19,
+    title: "Яркое настроение",
+    price: 198000,
+    image: ProductImage9,
+    category: "Тюльпаны",
+    isNew: true,
+  },
+  {
+    id: 20,
+    title: "Розовый закат",
+    price: 225000,
+    image: ProductImage10,
+    category: "Пионы",
+    isNew: false,
+  },
+  {
+    id: 21,
+    title: "Сиреневая любовь",
+    price: 235000,
+    image: ProductImage11,
+    category: "Гортензии",
+    isNew: false,
+  },
+  {
+    id: 22,
+    title: "Цветочное облако",
+    price: 255000,
+    image: ProductImage12,
+    category: "Авторские букеты",
+    isNew: true,
+  },
+  {
+    id: 23,
+    title: "Весеннее утро",
+    price: 150000,
+    image: ProductImage12,
+    category: "Тюльпаны",
+    isNew: false,
+  },
+  {
+    id: 24,
+    title: "Малиновая нежность",
+    price: 190000,
+    image: ProductImage11,
+    category: "Розы",
+    isNew: false,
+  },
+  {
+    id: 25,
+    title: "Пионовая любовь",
+    price: 245000,
+    image: ProductImage10,
+    category: "Пионы",
+    isNew: true,
+  },
+  {
+    id: 26,
+    title: "Небесная композиция",
+    price: 260000,
+    image: ProductImage9,
+    category: "Гортензии",
+    isNew: false,
+  },
+  {
+    id: 27,
+    title: "Цветочный комплимент",
+    price: 175000,
+    image: ProductImage8,
+    category: "Авторские букеты",
+    isNew: false,
+  },
+  {
+    id: 28,
+    title: "Розовая мечта",
+    price: 215000,
+    image: ProductImage9,
+    category: "Розы",
+    isNew: true,
+  },
+  {
+    id: 29,
+    title: "Идеальный подарок",
+    price: 280000,
+    image: ProductImage10,
+    category: "Авторские букеты",
+    isNew: false,
+  },
 ];

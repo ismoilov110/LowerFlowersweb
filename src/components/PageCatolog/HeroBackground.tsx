@@ -1,13 +1,10 @@
-import CatologImg from "@/assets/Img/image 128.png";
-import CatologImg2 from "@/assets/Img/image 129.png";
-
 const HeroBackground = () => {
   return (
-    <div className="pointer-events-none absolute inset-0">
+    <div className="pointer-events-none absolute inset-0 z-0">
       {/* =========================
           BACKGROUND GLOWS
       ========================== */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         {/* Top Right Magenta Glow */}
         <div
           className="
@@ -48,81 +45,6 @@ const HeroBackground = () => {
             background:
               "radial-gradient(circle, rgba(122, 24, 74, 0.35) 0%, rgba(122, 24, 74, 0) 70%)",
           }}
-        />
-      </div>
-
-      {/* =========================
-          FLOWERS
-      ========================== */}
-      <div className="relative z-0 mx-auto h-full w-full max-w-[1440px]">
-        {/* LEFT FLOWER
-            Figma: higher position
-        */}
-        <img
-          src={CatologImg}
-          alt="Left Flower"
-          className="
-            absolute
-
-            w-[320px]
-            sm:w-[480px]
-            md:w-[650px]
-            lg:w-[800px]
-            xl:w-[900px]
-
-            left-[-120px]
-            sm:left-[-180px]
-            md:left-[-240px]
-            lg:left-[-280px]
-            xl:left-[-320px]
-
-            top-[-120px]
-            sm:top-[-220px]
-            md:top-[-260px]
-            lg:top-[-300px]
-            xl:top-[-340px]
-
-            rotate-[12deg]
-
-            transition-all
-            duration-700
-            ease-out
-          "
-        />
-
-        {/* RIGHT FLOWER
-            Figma: lower position
-        */}
-        <img
-          src={CatologImg2}
-          alt="Right Flower"
-          className="
-            absolute
-
-            w-[280px]
-            sm:w-[420px]
-            md:w-[580px]
-            lg:w-[720px]
-            xl:w-[820px]
-
-            right-[-100px]
-            sm:right-[-150px]
-            md:right-[-200px]
-            lg:right-[-240px]
-            xl:right-[-280px]
-
-            bottom-[-100px]
-            sm:bottom-[-280px]
-            md:bottom-[-320px]
-            lg:bottom-[-360px]
-            xl:bottom-[-420px]
-
-            rotate-[-8deg]
-
-            transition-all
-            duration-700
-            ease-out
-          "
         />
       </div>
     </div>

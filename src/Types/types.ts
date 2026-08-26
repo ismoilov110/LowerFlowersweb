@@ -73,4 +73,14 @@ export interface BreadcrumbsType {
 export interface CatalogCategoryType {
     id: number;
     label: string;
-}
+}
+
+
+export interface CatalogProductType {
+    id: number;
+    title: string;
+    price: number;
+    image: string;
+    category: string;
+    isNew: boolean;
+}
