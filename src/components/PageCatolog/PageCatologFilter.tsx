@@ -1,9 +1,47 @@
-import { useState } from "react";
+import { useAppDispatch, useAppSelector } from "@/Store/hooks";
+import {
+  toggleColor,
+  toggleFormat,
+  toggleFlower,
+  setPriceRange,
+  resetFilters,
+} from "@/Store/slices/catalogSlice";
 import { Checkbox } from "../ui/checkbox";
 import { Slider } from "../ui/slider";
 
+const COLORS = [
+  { value: "белый", label: "белый" },
+  { value: "желтый", label: "желтый" },
+  { value: "зеленый", label: "зеленый" },
+  { value: "красный", label: "красный" },
+  { value: "оранжевый", label: "оранжевый" },
+  { value: "розовый", label: "розовый" },
+  { value: "синий", label: "синий" },
+];
+
+const FORMATS = [
+  { value: "букет", label: "букет" },
+  { value: "в вазе", label: "в вазе" },
+  { value: "в конверте", label: "в конверте" },
+  { value: "в корзине", label: "в корзине" },
+  { value: "в шляпной коробке", label: "в шляпной коробке" },
+  { value: "в ящике", label: "в ящике" },
+  { value: "сборные букеты", label: "сборные букеты" },
+];
+
+const FLOWERS = [
+  { value: "Альстромерия", label: "Альстромерия (2)" },
+  { value: "Антуриум", label: "Антуриум (1)" },
+  { value: "Аспарагус", label: "Аспарагус (1)" },
+  { value: "Астильба", label: "Астильба (7)" },
+  { value: "Астранция", label: "Астранция (1)" },
+];
+
 export default function PageCatologFilter() {
-  const [Price, setPrice] = useState<[number, number]>([50, 400]);
+  const dispatch = useAppDispatch();
+  const { selectedColors, selectedFormats, priceRange, selectedFlowers } = useAppSelector(
+    (state) => state.catalog
+  );
 
   return (
     <div className="relative w-full max-w-[340px]">
@@ -78,40 +116,19 @@ export default function PageCatologFilter() {
           </h3>
 
           <ul className="mt-5 flex flex-col gap-2 font-light text-[12px] leading-none text-white uppercase">
-            <li className="flex items-center gap-3">
-              <Checkbox className="rounded-[4px] cursor-pointer border-[0.5px] border-white" />
-              белый
-            </li>
-
-            <li className="flex items-center gap-3">
-              <Checkbox className="rounded-[4px] cursor-pointer border-[0.5px] border-white" />
-              желтый
-            </li>
-
-            <li className="flex items-center gap-3">
-              <Checkbox className="rounded-[4px] cursor-pointer border-[0.5px] border-white" />
-              зеленый
-            </li>
-
-            <li className="flex items-center gap-3">
-              <Checkbox className="rounded-[4px] cursor-pointer border-[0.5px] border-white" />
-              красный
-            </li>
-
-            <li className="flex items-center gap-3">
-              <Checkbox className="rounded-[4px] cursor-pointer border-[0.5px] border-white" />
-              оранжевый
-            </li>
-
-            <li className="flex items-center gap-3">
-              <Checkbox className="rounded-[4px] cursor-pointer border-[0.5px] border-white" />
-              розовый
-            </li>
-
-            <li className="flex items-center gap-3">
-              <Checkbox className="rounded-[4px] cursor-pointer border-[0.5px] border-white" />
-              синий
-            </li>
+            {COLORS.map((color) => {
+              const isChecked = selectedColors.includes(color.value);
+              return (
+                <li key={color.value} className="flex items-center gap-3">
+                  <Checkbox
+                    checked={isChecked}
+                    onCheckedChange={() => dispatch(toggleColor(color.value))}
+                    className="rounded-[4px] cursor-pointer border-[0.5px] border-white"
+                  />
+                  {color.label}
+                </li>
+              );
+            })}
           </ul>
         </div>
 
@@ -122,40 +139,19 @@ export default function PageCatologFilter() {
           </h3>
 
           <ul className="mt-5 flex flex-col gap-2 font-light text-[12px] leading-none text-white uppercase">
-            <li className="flex items-center gap-3">
-              <Checkbox className="rounded-[4px] cursor-pointer border-[0.5px] border-white" />
-              букет
-            </li>
-
-            <li className="flex items-center gap-3">
-              <Checkbox className="rounded-[4px] cursor-pointer border-[0.5px] border-white" />
-              в вазе
-            </li>
-
-            <li className="flex items-center gap-3">
-              <Checkbox className="rounded-[4px] cursor-pointer border-[0.5px] border-white" />
-              в конверте
-            </li>
-
-            <li className="flex items-center gap-3">
-              <Checkbox className="rounded-[4px] cursor-pointer border-[0.5px] border-white" />
-              в корзине
-            </li>
-
-            <li className="flex items-center gap-3">
-              <Checkbox className="rounded-[4px] cursor-pointer border-[0.5px] border-white" />
-              в шляпной коробке
-            </li>
-
-            <li className="flex items-center gap-3">
-              <Checkbox className="rounded-[4px] cursor-pointer border-[0.5px] border-white" />
-              в ящике
-            </li>
-
-            <li className="flex items-center gap-3">
-              <Checkbox className="rounded-[4px] cursor-pointer border-[0.5px] border-white" />
-              сборные букеты
-            </li>
+            {FORMATS.map((format) => {
+              const isChecked = selectedFormats.includes(format.value);
+              return (
+                <li key={format.value} className="flex items-center gap-3">
+                  <Checkbox
+                    checked={isChecked}
+                    onCheckedChange={() => dispatch(toggleFormat(format.value))}
+                    className="rounded-[4px] cursor-pointer border-[0.5px] border-white"
+                  />
+                  {format.label}
+                </li>
+              );
+            })}
           </ul>
         </div>
 
@@ -166,13 +162,10 @@ export default function PageCatologFilter() {
           </h3>
 
           <Slider
-            value={Price}
-            onValueChange={(value) => {
-              // value can be a single number or an array of numbers depending on the slider
-              if (Array.isArray(value)) {
-                setPrice([value[0], value[1]]);
-              } else {
-                setPrice([value as number, value as number]);
+            value={priceRange}
+            onValueChange={(val) => {
+              if (Array.isArray(val)) {
+                dispatch(setPriceRange([val[0], val[1]]));
               }
             }}
             min={50}
@@ -182,7 +175,7 @@ export default function PageCatologFilter() {
           />
 
           <p className="mt-3 text-[12px] font-light uppercase text-white">
-            ЦЕНА: {Price[0].toFixed(2)} ₽ - {Price[1].toFixed(2)} ₽
+            ЦЕНА: {(priceRange[0] * 1000).toLocaleString()} ₽ - {(priceRange[1] * 1000).toLocaleString()} ₽
           </p>
         </div>
 
@@ -193,59 +186,47 @@ export default function PageCatologFilter() {
           </h3>
 
           <ul className="mt-5 flex flex-col gap-2 font-light text-[12px] leading-none text-white uppercase">
-            <li className="flex items-center gap-3">
-              <Checkbox className="rounded-[4px] cursor-pointer border-[0.5px] border-white" />
-              Альстромерия (2)
-            </li>
-
-            <li className="flex items-center gap-3">
-              <Checkbox className="rounded-[4px] cursor-pointer border-[0.5px] border-white" />
-              Антуриум (1)
-            </li>
-
-            <li className="flex items-center gap-3">
-              <Checkbox className="rounded-[4px] cursor-pointer border-[0.5px] border-white" />
-              Аспарагус (1)
-            </li>
-
-            <li className="flex items-center gap-3">
-              <Checkbox className="rounded-[4px] cursor-pointer border-[0.5px] border-white" />
-              Астильба (7)
-            </li>
-
-            <li className="flex items-center gap-3">
-              <Checkbox className="rounded-[4px] cursor-pointer border-[0.5px] border-white" />
-              Астранция (1)
-            </li>
+            {FLOWERS.map((flower) => {
+              const isChecked = selectedFlowers.includes(flower.value);
+              return (
+                <li key={flower.value} className="flex items-center gap-3">
+                  <Checkbox
+                    checked={isChecked}
+                    onCheckedChange={() => dispatch(toggleFlower(flower.value))}
+                    className="rounded-[4px] cursor-pointer border-[0.5px] border-white"
+                  />
+                  {flower.label}
+                </li>
+              );
+            })}
           </ul>
         </div>
 
         {/* Reset */}
         <button
           type="button"
+          onClick={() => dispatch(resetFilters())}
           className="
             mt-6
-          relative group w-full overflow-hidden rounded-lg border border-white/60 bg-white/[0.02] py-3.5 text-[12px] font-bold uppercase tracking-[0.08em] text-white transition-all backdrop-blur-[10px] duration-500 cursor-pointer hover:border-[#43FFD2] hover:bg-[#43FFD2]/10 hover:text-[#43FFD2]hover:shadow-[0_0_20px_rgba(67,255,210,0.15)] active:scale-[0.98]
+            relative group w-full overflow-hidden rounded-lg border border-white/60 bg-white/[0.02] py-3.5 text-[12px] font-bold uppercase tracking-[0.08em] text-white transition-all backdrop-blur-[10px] duration-500 cursor-pointer hover:border-[#43FFD2] hover:bg-[#43FFD2]/10 hover:text-[#43FFD2] hover:shadow-[0_0_20px_rgba(67,255,210,0.15)] active:scale-[0.98]
           "
         >
           {/* Hover light */}
           <span
             className="
-      absolute
-      inset-y-0
-      left-[-100%]
-      w-[60%]
-      skew-x-[-20deg]
-      bg-white/10
-      transition-all
-      duration-700
-      group-hover:left-[130%]
-    "
+              absolute
+              inset-y-0
+              left-[-100%]
+              w-[60%]
+              skew-x-[-20deg]
+              bg-white/10
+              transition-all
+              duration-700
+              group-hover:left-[130%]
+            "
           />
 
-          <span className="relative z-10">
-            Сбросить фильтр
-          </span>
+          <span className="relative z-10">Сбросить фильтр</span>
         </button>
       </aside>
     </div>

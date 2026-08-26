@@ -1,8 +1,30 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { catalogCategories } from "@/Constants/Data";
+import { useAppDispatch, useAppSelector } from "@/Store/hooks";
+import { setSelectedCategory, setSelectedSort } from "@/Store/slices/catalogSlice";
+
+const sortOptions = [
+  { value: "popular", label: "ПО ПОПУЛЯРНОСТИ" },
+  { value: "expensive", label: "СНАЧАЛА ДОРОГИЕ" },
+  { value: "cheap", label: "СНАЧАЛА ДЕШЕВЫЕ" },
+];
 
 export default function PageCatalogHero() {
-  const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
+  const dispatch = useAppDispatch();
+  const { selectedCategory, selectedSort } = useAppSelector((state) => state.catalog);
+  const [isSortOpen, setIsSortOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsSortOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <div className="w-full max-w-[1240px] mx-auto px-4 md:px-6 pt-12 md:pt-16 pb-12">
@@ -85,201 +107,138 @@ export default function PageCatalogHero() {
         </div>
 
         {/* ================================================= */}
-        {/* MOBILE CONTROLS */}
+        {/* DESKTOP CATEGORIES & SORTING */}
         {/* ================================================= */}
 
-        <div className="md:hidden flex flex-col gap-3 mt-2">
-          {/* Filter */}
-          <button
-            type="button"
-            className="
-              flex
-              items-center
-              w-fit
-              text-[#d77bab]
-              text-[11px]
-              uppercase
-              tracking-[0.08em]
-              font-medium
-              transition-colors
-              duration-300
-              hover:text-white
-            "
-          >
-            <span>ФИЛЬТР ТОВАРОВ</span>
-
-            <span className="ml-3 text-[10px]">
-              ▼
-            </span>
-          </button>
-
-          {/* Sorting */}
-          <button
-            type="button"
-            className="
-              flex
-              items-center
-              w-fit
-              text-[#d77bab]
-              text-[11px]
-              uppercase
-              tracking-[0.08em]
-              font-medium
-              transition-colors
-              duration-300
-              hover:text-white
-            "
-          >
-            <span>СОРТИРОВКА ТОВАРОВ</span>
-
-            <span className="ml-3 text-[10px]">
-              ▼
-            </span>
-          </button>
-
-          {/* Categories Toggle */}
-          <button
-            type="button"
-            onClick={() => setIsCategoriesOpen((prev) => !prev)}
-            className={`
-              flex
-              items-center
-              w-fit
-              text-[11px]
-              uppercase
-              tracking-[0.08em]
-              font-medium
-              transition-colors
-              duration-300
-              ${
-                isCategoriesOpen
-                  ? "text-[#43FFD2]"
-                  : "text-[#d77bab]"
-              }
-            `}
-          >
-            <span>КАТЕГОРИИ</span>
-
-            <span
-              className={`
-                ml-3
-                text-[10px]
-                transition-transform
-                duration-300
-                ${
-                  isCategoriesOpen
-                    ? "rotate-180"
-                    : ""
-                }
-              `}
-            >
-              ▼
-            </span>
-          </button>
-
-          {/* Mobile Category Buttons */}
-          <div
-            className={`
-              overflow-hidden
-              transition-all
-              duration-500
-              ease-in-out
-              ${
-                isCategoriesOpen
-                  ? "max-h-[700px] opacity-100 mt-1"
-                  : "max-h-0 opacity-0"
-              }
-            `}
-          >
-            <div
-              className="
-                flex
-                flex-wrap
-                gap-2
-                items-center
-              "
-            >
-              {catalogCategories.map((category) => (
+        <div className="hidden md:flex justify-between items-end gap-6 mt-6 md:mt-8">
+          {/* Categories */}
+          <div className="flex flex-wrap gap-2.5 md:gap-3 justify-start items-center max-w-[75%] lg:max-w-[80%]">
+            {catalogCategories.map((category) => {
+              const isSelected = selectedCategory === category.label;
+              return (
                 <button
                   key={category.id}
                   type="button"
-                  className="
-                    px-3
+                  onClick={() => {
+                    if (isSelected) {
+                      dispatch(setSelectedCategory(null));
+                    } else {
+                      dispatch(setSelectedCategory(category.label));
+                    }
+                  }}
+                  className={`
+                    px-4
                     py-2
                     rounded-full
                     border
-                    border-white/15
-                    bg-black/20
-                    backdrop-blur-[10px]
-                    text-white/85
-                    text-[8px]
+                    text-[10px]
+                    md:text-[11px]
                     font-medium
-                    tracking-[0.04em]
+                    tracking-[0.06em]
                     uppercase
-                    whitespace-nowrap
                     transition-all
                     duration-300
-                    hover:bg-[#43FFD2]/10
-                    hover:border-[#43FFD2]/40
-                    hover:text-[#43FFD2]
-                    active:scale-95
                     cursor-pointer
-                  "
+                    ${
+                      isSelected
+                        ? "bg-[#43FFD2]/10 border-[#43FFD2]/50 text-[#43FFD2] scale-[1.03]"
+                        : "border-white/10 bg-[#00000022]/10 backdrop-blur-[10px] text-white/85 hover:bg-[#43FFD2]/10 hover:border-[#43FFD2]/30 hover:text-[#43FFD2] hover:scale-[1.03]"
+                    }
+                  `}
                 >
                   {category.label}
                 </button>
-              ))}
-            </div>
+              );
+            })}
           </div>
-        </div>
 
-        {/* ================================================= */}
-        {/* DESKTOP CATEGORIES */}
-        {/* ================================================= */}
-
-        <div
-          className="
-            hidden
-            md:flex
-            flex-wrap
-            gap-2.5
-            md:gap-3
-            mt-6
-            md:mt-8
-            justify-start
-            items-center
-          "
-        >
-          {catalogCategories.map((category) => (
+          {/* Desktop Sorting Dropdown */}
+          <div ref={dropdownRef} className="relative z-30 shrink-0">
             <button
-              key={category.id}
               type="button"
+              onClick={() => setIsSortOpen(!isSortOpen)}
               className="
-                px-4
-                py-2
+                px-5
+                py-2.5
                 rounded-full
                 border
                 border-white/10
                 bg-[#00000022]/10
                 backdrop-blur-[10px]
-                text-white/85
+                text-white
                 text-[10px]
                 md:text-[11px]
                 font-medium
                 tracking-[0.06em]
                 uppercase
+                flex
+                items-center
+                gap-2
+                cursor-pointer
                 transition-all
                 duration-300
-                hover:bg-[#43FFD2]/10
-                hover:border-[#43FFD2]/30
-                hover:text-[#43FFD2]
-                hover:scale-[1.03]
-                cursor-pointer
+                hover:border-white/30
+                hover:bg-[#00000033]/20
               "
             >
-              {category.label}
+              <span>{sortOptions.find(o => o.value === selectedSort)?.label || "ПО ПОПУЛЯРНОСТИ"}</span>
+              <span className={`text-[8px] transition-transform duration-300 ${isSortOpen ? "rotate-180" : ""}`}>
+                ▼
+              </span>
             </button>
-          ))}
+
+            {isSortOpen && (
+              <div
+                className="
+                  absolute
+                  right-0
+                  mt-2
+                  w-[200px]
+                  rounded-[16px]
+                  border
+                  border-white/10
+                  bg-[#040a0a]/95
+                  backdrop-blur-[20px]
+                  py-2
+                  shadow-2xl
+                  flex
+                  flex-col
+                  gap-1
+                "
+              >
+                {sortOptions.map((option) => (
+                  <button
+                    key={option.value}
+                    type="button"
+                    onClick={() => {
+                      dispatch(setSelectedSort(option.value));
+                      setIsSortOpen(false);
+                    }}
+                    className={`
+                      w-full
+                      text-left
+                      px-4
+                      py-2
+                      text-[10px]
+                      md:text-[11px]
+                      font-medium
+                      tracking-[0.06em]
+                      uppercase
+                      transition-colors
+                      cursor-pointer
+                      ${
+                        selectedSort === option.value
+                          ? "text-[#43FFD2] bg-white/5"
+                          : "text-white/80 hover:text-white hover:bg-white/5"
+                      }
+                    `}
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
