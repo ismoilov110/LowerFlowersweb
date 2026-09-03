@@ -10,7 +10,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       {/* Product Image */}
       <img
         className="aspect-[3/4] w-full h-[350px] rounded-2xl cursor-pointer object-cover transition-transform duration-500 group-hover:scale-105"
-        src={product.image}
+        src={product.image} 
         alt={product.title}
       />
 
