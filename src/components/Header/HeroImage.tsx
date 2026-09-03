@@ -11,7 +11,7 @@ export default function HeroImage() {
       opacity: 0,
       scale: .8,
       rotate: -8,
-      duration: 1.4,
+      duration: 1.2,
       ease: "power4.out",
     }
     );

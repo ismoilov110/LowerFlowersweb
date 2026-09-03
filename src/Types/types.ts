@@ -48,7 +48,8 @@ export interface CatalogProdctType {
     id: number,
     imags: string,
     name: string,
-    price: string
+    price: string,
+    
 }
 
 
@@ -59,6 +60,8 @@ export interface PopularProductType {
     imgs: string
     title: string
     PricePopular: string
+    Category: string,
+    CatergorySlug: string
 }
 
 
