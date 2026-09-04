@@ -15,7 +15,7 @@ export default function HeroTitle() {
 
     if (!letters) return
 
-    gsap.from(letters, {
+  const titleTwins = gsap.from(letters, {
       y: 120,
       opacity: 0,
       duration: 1,
@@ -24,7 +24,7 @@ export default function HeroTitle() {
 
     });
 
-    gsap.from(descRef.current, {
+ const descTween = gsap.from(descRef.current, {
       y: 30,
       opacity: 0,
       duration: 1,
@@ -32,6 +32,11 @@ export default function HeroTitle() {
       ease: "power3.out",
       filter: "blur(10px)"
     })
+
+    return () => {
+      titleTwins.revert()
+      descTween.revert()
+    }
 
   }, [])
   return (

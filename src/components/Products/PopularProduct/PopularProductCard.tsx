@@ -23,7 +23,7 @@ export default function PopularProductCard() {
                         {/* Imgs */}
                         <img
                             className="h-full w-full object-cover transition-all duration-500 group-hover:scale-110"
-                            src={item.imgs}
+                            src={item.imgs[0]}
                             alt={item.title}
                         />
 

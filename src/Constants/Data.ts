@@ -128,75 +128,75 @@ import PopularImgs4 from "@/assets/Img/ChatGPT Image 24 июл. 2026 г., 15_06_
 export const PopularsProduct: PopularProductType[] = [
   {
     id: 0,
-    imgs: PopularImgs,
+    imgs: [PopularImgs, PopularImgs, PopularImgs],
     title: "Розовая Симфония",
     PricePopular: "300 000 so'm",
-    Category: "Розы",
-    CatergorySlug: "Roses"
+    category: "Розы",
+    categorySlug: "roses"
   },
   {
     id: 1,
-    imgs: PopularImgs2,
+    imgs: [PopularImgs2, PopularImgs2, PopularImgs2],
     title: "Лунный Свет",
     PricePopular: "250 000 so'm",
-    Category: "Розы",
-    CatergorySlug: "Roses"
+    category: "Розы",
+    categorySlug: "roses"
   },
   {
     id: 2,
-    imgs: PopularImgs3,
+    imgs: [PopularImgs3, PopularImgs3, PopularImgs3],
     title: "Весенний Рассвет",
     PricePopular: "450 000 so'm",
-    Category: "Розы",
-    CatergorySlug: "Roses"
+    category: "Розы",
+    categorySlug: "roses"
   },
   {
     id: 3,
-    imgs: PopularImgs4,
+    imgs: [PopularImgs4, PopularImgs4, PopularImgs4],
     title: "Королевская Роза",
     PricePopular: "390 000 so'm",
-    Category: "Розы",
-    CatergorySlug: "Roses"
+    category: "Розы",
+    categorySlug: "roses"
   },
   {
     id: 4,
-    imgs: PopularImgs4,
+    imgs: [PopularImgs4, PopularImgs4, PopularImgs4],
     title: "Магия Цветов",
     PricePopular: "320 000 so'm",
-    Category: "Розы",
-    CatergorySlug: "Roses"
+    category: "Розы",
+    categorySlug: "roses"
   },
   {
     id: 5,
-    imgs: PopularImgs4,
+    imgs: [PopularImgs4, PopularImgs4, PopularImgs4],
     title: "Белое Облако",
     PricePopular: "560 000 so'm",
-    Category: "Розы",
-    CatergorySlug: "Roses"
+    category: "Розы",
+    categorySlug: "roses"
   },
   {
     id: 6,
-    imgs: PopularImgs4,
+    imgs: [PopularImgs4, PopularImgs4, PopularImgs4],
     title: "Солнечный день",
     PricePopular: "760 000 so'm",
-    Category: "Розы",
-    CatergorySlug: "Roses"
+    category: "Розы",
+    categorySlug: "roses"
   },
   {
     id: 7,
-    imgs: PopularImgs4,
+    imgs: [PopularImgs4, PopularImgs4, PopularImgs4],
     title: "Нежность",
     PricePopular: "1000 000 so'm",
-    Category: "Розы",
-    CatergorySlug: "Roses"
+    category: "Розы",
+    categorySlug: "roses"
   },
   {
     id: 8,
-    imgs: PopularImgs4,
+    imgs: [PopularImgs4, PopularImgs4, PopularImgs4],
     title: "Романтика",
     PricePopular: "2000 000 so'm",
-    Category: "Розы",
-    CatergorySlug: "Roses"
+    category: "Розы",
+    categorySlug: "roses"
   },
 ]
 

@@ -6,7 +6,7 @@ export default function HeroImage() {
   const imageRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    gsap.from(imageRef.current, {
+    const tween = gsap.from(imageRef.current, {
       y: 80,
       opacity: 0,
       scale: .8,
@@ -15,6 +15,10 @@ export default function HeroImage() {
       ease: "power4.out",
     }
     );
+
+    return () => {
+      tween.revert()
+    }
 
   }, [])
   return (
