@@ -55,14 +55,14 @@ export interface CatalogProdctType {
 
 // for PopularProducts types
 
-export interface PopularProductType {
-    id: number
-    imgs: string
-    title: string
-    PricePopular: string
-    Category: string,
-    CatergorySlug: string
-}
+export type PopularProductType = {
+  id: number;
+  imgs: string[];
+  title: string;
+  PricePopular: string;
+  category: string;
+  categorySlug: string;
+};
 
 
 // for breancrumbs types 
