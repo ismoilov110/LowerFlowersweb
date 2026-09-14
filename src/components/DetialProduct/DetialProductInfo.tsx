@@ -32,7 +32,7 @@ export default function DetialProductInfo({ product }: DetialProductInfoProps) {
 
             {/* Title */}
 
-            <h1 className="text-4xl font-serif uppercase text-white mt-[20px]">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-serif uppercase text-white mt-4 sm:mt-5">
                 {product?.title}
             </h1>
 
