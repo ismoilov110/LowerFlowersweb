@@ -17,17 +17,15 @@ export default function Rayting({ value, onChange }: RaytingProps) {
                     type="button"
                     key={star}
                     onClick={() => onChange(star)}
-                    onMouseEnter={() => onChange(star)}
-                    onMouseLeave={() => onChange(star)}
+                    onMouseEnter={() => setHoverValue(star)}
+                    onMouseLeave={() => setHoverValue(0)}
                     className="text-2xl leading-none cursor-pointer"
                 >
                     <span className={star <= (hoverValue || value) ? "text-yellow-500" : "text-white"}>
                         <Star />
                     </span>
-
                 </Button>
             ))}
-
         </div>
     )
 }
