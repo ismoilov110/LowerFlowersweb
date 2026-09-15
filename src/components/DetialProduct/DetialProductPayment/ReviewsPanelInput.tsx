@@ -20,7 +20,7 @@ export default function ReviewsPanelInput({ comment, onCommentChange, name, onNa
                     onChange={(e) => onCommentChange(e.target.value)}
                     placeholder="Введите комментарий"
                     rows={5}
-                    className="w-[540px] bg-transparent border border-white/20 rounded-md px-4 py-3 text-[14px] text-white placeholder:text-white/40 outline-none focus:border-[#43FFD2] transition-colors"
+                    className="lg:w-[540px] w-[300px]  bg-transparent border border-white/20 rounded-md px-4 py-3 text-[14px] text-white placeholder:text-white/40 outline-none focus:border-[#43FFD2] transition-colors"
                 >
 
                 </textarea>
@@ -35,7 +35,7 @@ export default function ReviewsPanelInput({ comment, onCommentChange, name, onNa
                     value={name}
                     onChange={(e) => onNameChange(e.target.value)}
                     placeholder="Введите ваше имя"
-                    className="w-[540px] bg-transparent border border-white/20 rounded-md px-4 py-3 text-[14px]  placeholder:text-white/40 outline-none focus:border-[#43FFD2] transition-colors"
+                    className="lg:w-[540px] w-[300px] bg-transparent border border-white/20 rounded-md px-4 py-3 text-[14px]  placeholder:text-white/40 outline-none focus:border-[#43FFD2] transition-colors"
                 />
                 {errors.name && <p className="text-red-400 text-xs mt-1">{errors.name}</p>}
             </div>
@@ -51,9 +51,7 @@ export default function ReviewsPanelInput({ comment, onCommentChange, name, onNa
                     value={email}
                     onChange={(e) => onEmailChange(e.target.value)}
                     placeholder="Введите вашу почту"
-                    className="w-[540px] bg-transparent border border-white/20 rounded-md px-4 py-3 text-[14px] text-white placeholder:text-white/40 outline-none focus:border-[#43FFD2] transition-colors"
-
-
+                    className="lg:w-[540px] w-[300px] bg-transparent border border-white/20 rounded-md px-4 py-3 text-[14px] text-white placeholder:text-white/40 outline-none focus:border-[#43FFD2] transition-colors"
                 />
                 {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
             </div>
