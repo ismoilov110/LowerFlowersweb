@@ -87,3 +87,26 @@ export interface CatalogProductType {
     category: string;
     isNew: boolean;
 }
+
+// for DetialPaymentInfo types
+
+export interface DetailPaymentItem {
+    bold?: string;
+    text: string;
+    highlight?: string;
+}
+
+export interface DetailPaymentInfoType {
+    title: string;
+    items: DetailPaymentItem[];
+}
+
+// for Recommended / Related products (Вам может понравиться)
+export interface RecommendedProductType {
+    id: number;
+    title: string;
+    price: string;
+    oldPrice?: string;
+    image: string;
+    isSale?: boolean;
+}

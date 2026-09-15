@@ -1,6 +1,6 @@
 // Navbar Links
 
-import type { CatalogCardType, CatalogProdctType, PopularProductType, CatalogCategoryType, CatalogProductType } from "@/Types/types"
+import type { CatalogCardType, CatalogProdctType, PopularProductType, CatalogCategoryType, CatalogProductType, DetailPaymentInfoType, RecommendedProductType } from "@/Types/types"
 
 export const NavbarLink = [
   {
@@ -122,13 +122,15 @@ export const CatalogProduct: CatalogProdctType[] = [
 // PopularProducts Datas
 import PopularImgs from "@/assets/Img/ChatGPT Image 24 июл. 2026 г., 15_11_19.png"
 import PopularImgs2 from "@/assets/Img/ChatGPT Image 24 июл. 2026 г., 15_10_33.png"
+import DetialProductImage from "@/assets/Img/Gemini_Generated_Image_32esrp32esrp32es.jpg"
+import DetialProductImage2 from "@/assets/Img/Gemini_Generated_Image_32esrp32esrp32es.jpg"
 import PopularImgs3 from "@/assets/Img/ChatGPT Image 24 июл. 2026 г., 15_08_49.png"
 import PopularImgs4 from "@/assets/Img/ChatGPT Image 24 июл. 2026 г., 15_06_17.png"
 
 export const PopularsProduct: PopularProductType[] = [
   {
     id: 0,
-    imgs: [PopularImgs, PopularImgs, PopularImgs],
+    imgs: [PopularImgs, DetialProductImage, PopularImgs],
     title: "Розовая Симфония",
     PricePopular: "300 000 so'm",
     category: "Розы",
@@ -136,7 +138,7 @@ export const PopularsProduct: PopularProductType[] = [
   },
   {
     id: 1,
-    imgs: [PopularImgs2, PopularImgs2, PopularImgs2],
+    imgs: [PopularImgs2, DetialProductImage, DetialProductImage2],
     title: "Лунный Свет",
     PricePopular: "250 000 so'm",
     category: "Розы",
@@ -144,7 +146,7 @@ export const PopularsProduct: PopularProductType[] = [
   },
   {
     id: 2,
-    imgs: [PopularImgs3, PopularImgs3, PopularImgs3],
+    imgs: [PopularImgs3, DetialProductImage, DetialProductImage2],
     title: "Весенний Рассвет",
     PricePopular: "450 000 so'm",
     category: "Розы",
@@ -152,7 +154,7 @@ export const PopularsProduct: PopularProductType[] = [
   },
   {
     id: 3,
-    imgs: [PopularImgs4, PopularImgs4, PopularImgs4],
+    imgs: [PopularImgs4, DetialProductImage, DetialProductImage2],
     title: "Королевская Роза",
     PricePopular: "390 000 so'm",
     category: "Розы",
@@ -160,7 +162,7 @@ export const PopularsProduct: PopularProductType[] = [
   },
   {
     id: 4,
-    imgs: [PopularImgs4, PopularImgs4, PopularImgs4],
+    imgs: [PopularImgs4, DetialProductImage, DetialProductImage2],
     title: "Магия Цветов",
     PricePopular: "320 000 so'm",
     category: "Розы",
@@ -168,7 +170,7 @@ export const PopularsProduct: PopularProductType[] = [
   },
   {
     id: 5,
-    imgs: [PopularImgs4, PopularImgs4, PopularImgs4],
+    imgs: [PopularImgs4, DetialProductImage, DetialProductImage2],
     title: "Белое Облако",
     PricePopular: "560 000 so'm",
     category: "Розы",
@@ -176,7 +178,7 @@ export const PopularsProduct: PopularProductType[] = [
   },
   {
     id: 6,
-    imgs: [PopularImgs4, PopularImgs4, PopularImgs4],
+    imgs: [PopularImgs4, DetialProductImage, DetialProductImage2],
     title: "Солнечный день",
     PricePopular: "760 000 so'm",
     category: "Розы",
@@ -184,7 +186,7 @@ export const PopularsProduct: PopularProductType[] = [
   },
   {
     id: 7,
-    imgs: [PopularImgs4, PopularImgs4, PopularImgs4],
+    imgs: [PopularImgs4, DetialProductImage, DetialProductImage2],
     title: "Нежность",
     PricePopular: "1000 000 so'm",
     category: "Розы",
@@ -192,7 +194,7 @@ export const PopularsProduct: PopularProductType[] = [
   },
   {
     id: 8,
-    imgs: [PopularImgs4, PopularImgs4, PopularImgs4],
+    imgs: [PopularImgs4, DetialProductImage, DetialProductImage2],
     title: "Романтика",
     PricePopular: "2000 000 so'm",
     category: "Розы",
@@ -523,7 +525,6 @@ export const products: CatalogProductType[] = [
 ];
 
 // Detial Product NavLinks data
-
 export const DetialProductNavLinks = [
   {
     id: 0,
@@ -557,3 +558,73 @@ export const DetialProductNavLinks = [
   }
 
 ]
+
+// DetialPayment info Data
+
+export const DetialPaymentDataInfo: DetailPaymentInfoType[]= [
+  {
+    title: "Способы оплаты:",
+    items: [
+      { text: "Банковской картой при оформлении заказа через сайт" },
+      { text: "Наличными или банковской картой при самовывозе" },
+      { text: "Наличными при доставке курьером" },
+      { text: "Криптовалютой онлайн" },
+    ],
+  },
+  {
+    title: "Стоимость доставки:",
+    items: [
+      { bold: "Бесплатно", text: "– при заказе на сумму", highlight: "от 90 рублей" },
+      { bold: "10 рублей", text: "– при заказе на сумму", highlight: "менее 90 рублей" },
+      {
+        text: "Возможность, сроки и стоимость доставки за пределы МКАД, доставки в ночное время, праздники",
+        highlight: "оговариваются с менеджером",
+      },
+      {
+        text: "Так же вы можете забрать ваш заказ самостоятельно по адресу:",
+        highlight: "г. Минск, ул. Тимирязева д. 67, комн. 112 ежедневно с 10.00 до 21.00",
+      },
+    ],
+  },
+];
+
+export const DeliveryConditionsInfo = {
+  title: "Условия доставки:",
+  text: "Доставка осуществляется по городу Минску в пределах МКАД",
+  highlight: "в любой день с 09.00 до 22.00.",
+  extra: "Доставка в ночное время осуществляется по договоренности с оператором",
+};
+
+// Recommended products for "ВАМ МОЖЕТ ПОНРАВИТЬСЯ:" section on DetailProduct page
+export const recommendedProducts: RecommendedProductType[] = [
+  {
+    id: 0,
+    title: "ЛУЧШИЙ ДЕНЬ",
+    price: "167.00 ₽",
+    image: ProductImage1,
+    isSale: false,
+  },
+  {
+    id: 1,
+    title: "ЛУЧШИЙ ДЕНЬ",
+    price: "167.00 ₽",
+    image: PopularImgs2,
+    isSale: false,
+  },
+  {
+    id: 2,
+    title: "ЛУЧШИЙ ДЕНЬ",
+    price: "167.00 ₽",
+    oldPrice: "180.00 ₽",
+    image: PopularImgs3,
+    isSale: true,
+  },
+  {
+    id: 3,
+    title: "ЛУЧШИЙ ДЕНЬ",
+    price: "167.00 ₽",
+    oldPrice: "180.00 ₽",
+    image: PopularImgs4,
+    isSale: false,
+  },
+];
