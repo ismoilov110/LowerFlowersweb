@@ -7,7 +7,11 @@ import { reivewsSchemas, type ReviewFormValues } from "@/schemas/reivewsSchemas"
 
 type ReviewFormErrors = Partial<Record<keyof ReviewFormValues, string>>
 
-export default function ReviewsPanel() {
+interface ReviewsPanelProps {
+  onNewReview: (review: ReviewFormValues) => void
+}
+
+export default function ReviewsPanel({ onNewReview }: ReviewsPanelProps) {
   const [rating, setRating] = useState(0)
   const [comment, setComment] = useState("")
   const [name, setName] = useState("")
@@ -31,6 +35,11 @@ export default function ReviewsPanel() {
 
     setErrors({})
     console.log("Yuborilyapti:", result.data)
+    onNewReview(result.data)
+    setRating(0)
+    setComment("")
+    setName("")
+    setEmail("")
   }
 
   return (

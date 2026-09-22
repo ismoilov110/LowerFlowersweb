@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import DetialPaymentInfo from "./DetialPaymentInfo";
-import ReviewsPanel from "./ReviewsPanel";
+import ReviewsSection from "./ReviewsSection";
 
 type TabKey = "delivery" | "reviews";
 
@@ -58,7 +58,7 @@ export default function DetialProductPayment() {
         </div>
         {/* Shartli render - asosiy ozgarish shu yerda */}
          {activeTab === "delivery" && <DetialPaymentInfo/>}
-         {activeTab === "reviews" && <ReviewsPanel/>}
+         {activeTab === "reviews" && <ReviewsSection/>}
 
       </div>
     </div>

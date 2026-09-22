@@ -41,7 +41,6 @@ export default function ReviewsPanelInput({ comment, onCommentChange, name, onNa
             </div>
 
             {/* Email input */}
-
             <div>
                 <label className="block text-[14px] text-white mb-2">
                     E-mail*
