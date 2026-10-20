@@ -1,6 +1,6 @@
 import { Styles } from "@/Styles/Styles";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { Phone } from "lucide-react";
 
@@ -9,6 +9,8 @@ import UniversalNavLinks from "./UniversalNavLinks";
 import UniversalNavSearch from "./UniversalNavSearch";
 import BurgerButton from "@/components/Navbar/BurgerButton";
 import MobileMenu from "@/components/Navbar/MobileMenu/MobileMene";
+import { Button } from "../ui/button";
+import { useCart } from "@/Hooks/useCarts";
 
 /**
  * Universal Navbar Component for Inner Pages (DetialProduct, FAQ, Contacts, About, Delivery).
@@ -19,6 +21,9 @@ import MobileMenu from "@/components/Navbar/MobileMenu/MobileMene";
  */
 export default function NavUniversal() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { items, openCart } = useCart()
+
+    const totalCount = items.reduce((sum, item) => sum + item.quantity, 0)
 
     return (
         <header className="sticky top-0 z-50 w-full bg-[#040A0A]/95 backdrop-blur-md border-b border-white/5 transition-all duration-300">
@@ -53,17 +58,31 @@ export default function NavUniversal() {
                         </Link>
 
                         {/* Cart Button */}
-                        <Link
-                            to="/cart"
-                            className="relative flex items-center justify-center p-1 text-white hover:text-[#43FFD2] transition-colors duration-300 cursor-pointer"
-                            aria-label="Корзина"
-                        >
-                            <HiOutlineShoppingBag size={24} />
-                            {/* Cart count badge */}
-                            <span className="absolute -top-1 -right-1.5 flex items-center justify-center w-[18px] h-[18px] rounded-full bg-[#43FFD2] text-[#040A0A] text-[10px] font-bold shadow-[0_0_8px_#43FFD2]">
-                                5
+                        <Button onClick={openCart} className="relative cursor-pointer flex items-center justify-center w-14 h-14 rounded-[10px] backdrop-blur-[20px] bg-[#00000033]/20 transition-all duration-300 hover:scale-110 hover:text-white hover:drop-shadow-[0_0_10px_#43FFD2]  ">
+                            <HiOutlineShoppingBag size={24} className="text-white" />
+                            {/* Badge */}
+                            <span
+                                className="absolute
+                        top-2
+                        right-2
+                        w-5
+                        h-4
+                        rounded-full
+
+                        bg-[#43FFD2]
+
+                        text-[#040A0A]
+
+                        text-[11px]
+                        font-bold
+                        flex
+                        items-center
+                        justify-center
+                    "
+                            >
+                                {totalCount}
                             </span>
-                        </Link>
+                        </Button>
                     </div>
                 </div>
 
@@ -83,18 +102,17 @@ export default function NavUniversal() {
 
                     {/* Right: Shopping Cart Button */}
                     <div className="flex items-center">
-                        <Link
-                            to="/cart"
-                            onClick={() => setIsMenuOpen(false)}
+                        <button
+                            onClick={() => { setIsMenuOpen(false); openCart(); }}
                             className="relative cursor-pointer flex items-center justify-center w-10 h-10 rounded-full border border-[#43FFD2]/30 text-white bg-transparent transition-all duration-300 hover:scale-105 hover:text-[#43FFD2] hover:border-[#43FFD2] hover:shadow-[0_0_15px_rgba(67,255,210,0.2)]"
                             aria-label="Корзина"
                         >
                             <HiOutlineShoppingBag size={20} />
                             {/* Cart count badge */}
                             <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#43FFD2] text-[#040A0A] text-[9px] font-bold flex items-center justify-center shadow-[0_0_8px_#43FFD2]">
-                                5
+                                {totalCount}
                             </span>
-                        </Link>
+                        </button>
                     </div>
                 </div>
             </nav>

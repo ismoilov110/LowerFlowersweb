@@ -2,6 +2,7 @@ import { Styles } from "@/Styles/Styles";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
+import { useCart } from "@/Hooks/useCarts";
 
 import Logos from "./Logo";
 import NavbarLinks from "./NavLinks";
@@ -14,6 +15,7 @@ import MobileMenu from "./MobileMenu/MobileMene";
  */
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { openCart } = useCart();
 
     return (
         <div className="sticky top-0 z-50 w-full">
@@ -69,9 +71,8 @@ const Navbar = () => {
 
                     {/* Right Side: Shopping Cart Button */}
                     <div className="flex items-center">
-                        <Link
-                            to="/cart"
-                            onClick={() => setIsMenuOpen(false)}
+                        <button
+                            onClick={() => { setIsMenuOpen(false); openCart(); }}
                             className="
                                 relative
                                 cursor-pointer
@@ -114,7 +115,7 @@ const Navbar = () => {
                             >
                                 0
                             </span>
-                        </Link>
+                        </button>
                     </div>
                 </div>
             </nav>
