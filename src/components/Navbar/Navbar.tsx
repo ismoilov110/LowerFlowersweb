@@ -1,6 +1,5 @@
 import { Styles } from "@/Styles/Styles";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { useCart } from "@/Hooks/useCarts";
 

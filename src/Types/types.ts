@@ -61,7 +61,6 @@ export type PopularProductType = {
   title: string;
   PricePopular: string;
   category: string;
-  quantity: number;
   categorySlug: string;
 };
 
