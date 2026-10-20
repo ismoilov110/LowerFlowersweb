@@ -2,6 +2,7 @@ import type { BurgerButtonProps } from "@/Types/types";
 import { Menu, X } from "lucide-react";
 
 export default function BurgerButton({ isOpen, onClick }: BurgerButtonProps) {
+    
     return (
         <button
             onClick={onClick}
